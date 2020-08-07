@@ -44,7 +44,6 @@ if(isset($_POST['create_post'])){
                 echo "<option value='{$cat_id}'>{$cat_title}</option>";
             }
         ?>
-        <option value=""></option>
         </select>
     </div>
 

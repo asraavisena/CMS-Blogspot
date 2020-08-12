@@ -12,7 +12,7 @@ if(isset($_SESSION['username'])){
         $user_lastname= $row['user_lastname'];
         $user_email= $row['user_email'];
         $user_image= $row['user_image'];
-        $user_role= $row['user_role'];
+        
     }
 }
 
@@ -22,7 +22,7 @@ if(isset($_POST['edit_user'])){
     $user_lastname = $_POST['user_lastname'];
     $username = $_POST['username'];
     $user_email = $_POST['user_email'];
-    $user_role = $_POST['user_role'];
+    
     $user_password = $_POST['user_password'];
     
     // $post_image = $_FILES['image']['name'];
@@ -36,7 +36,6 @@ if(isset($_POST['edit_user'])){
     $query .= "user_lastname = '{$user_lastname}', ";
     $query .= "username = '{$username}', ";
     $query .= "user_email = '{$user_email}', ";
-    $query .= "user_role = '{$user_role}', ";
     $query .= "user_password = '{$user_password}' ";
     $query .= "WHERE username = '{$username}' ";
 
@@ -76,19 +75,6 @@ if(isset($_POST['edit_user'])){
                                 <input type="text" value="<?php echo $user_lastname; ?>"class="form-control" name="user_lastname">
                             </div>
 
-                            <div class="form-group">
-                                <select name="user_role" id="">
-                                <option value="<?php echo $user_role; ?>"><?php echo $user_role; ?> </option>
-                                    <?php 
-                                        if($user_role =='admin'){
-                                            echo "<option value='subscriber'>subscriber</option>";
-                                        }else{
-                                            echo "<option value='admin'>admin</option>";    
-                                        }
-                                    ?>
-                                </select>
-                            </div>
-
                             <!-- <div class="form-group">
                                 <label for="post_image"></label>
                                 <input type="file"  name="image">
@@ -106,7 +92,7 @@ if(isset($_POST['edit_user'])){
 
                             <div class="form-group">
                                 <label for="post_tags">Password</label>
-                                <input type="password" value="<?php echo $user_password; ?>"class="form-control" name="user_password">
+                                <input type="password" autocomplete="off" class="form-control" name="user_password">
                             </div>
 
                             <div class="form-group">
